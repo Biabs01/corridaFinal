@@ -5,9 +5,10 @@ class Player {
     this.positionX = 0;
     this.positionY = 0;
     this.rank = 0;
-    this.fuel = 185;
+this.fuel = 185;
     this.life = 185;
     this.score = 0;
+
   }
 
    addPlayer() {
@@ -60,8 +61,7 @@ class Player {
       positionX: this.positionX,
       positionY: this.positionY,
       rank: this.rank,
-      score: this.score,
-      life: this.life
+      score: this.score
      });
   }
 
@@ -72,14 +72,13 @@ class Player {
       allPlayers = data.val();
     });
   }
-
   getCarsAtEnd(){
     database.ref('carsAtEnd').on("value",(data)=>{
       this.rank = data.val()
     })
   }
 
-  static updateCarsAtEnd(rank) {
+ static updateCarsAtEnd(rank) {
    database.ref("/").update({
      carsAtEnd: rank
    });
